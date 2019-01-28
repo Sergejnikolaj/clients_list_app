@@ -1,0 +1,95 @@
+@font-face{
+font-family: 'Nobile-Regular';
+src: url('./fonts/Nobile-Regular.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+body{
+	margin: 0;
+	font-family: 'Nobile-Regular';
+}
+.list-holder{
+	width: 40%;
+	height: 100vh;
+	overflow: scroll;
+	overflow-x:hidden;
+	background: rgb(230,240,163); /* Old browsers */
+	background: -moz-linear-gradient(-45deg, rgba(230,240,163,1) 0%, rgba(210,230,56,1) 50%, rgba(195,216,37,1) 51%, rgba(219,240,67,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, rgba(230,240,163,1) 0%,rgba(210,230,56,1) 50%,rgba(195,216,37,1) 51%,rgba(219,240,67,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, rgba(230,240,163,1) 0%,rgba(210,230,56,1) 50%,rgba(195,216,37,1) 51%,rgba(219,240,67,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.contacts-list{
+	list-style-type: none;
+	margin: 0;
+    padding: 15px;	
+}
+.contact{
+	height: 60px;
+	background-color: rgba(255,255,255,0.4);
+    margin-top: 5px;
+}
+.contact:hover{
+	cursor: pointer;
+	background-color: rgba(255,255,255,1);
+}
+.contact-image{
+	display: inline-block;
+	height: 100%;
+	float: left;
+}
+.contact-image img{
+	height: 100%;
+}
+.contact-info{
+	display: inline-block;
+	padding-left: 10px;
+	padding-top: 10px;
+	float: left;
+}
+.contact-info p{
+	margin: 0;
+}
+
+.active-contact-holder{
+    overflow: hidden;
+	padding: 15px 0 0 15px;
+	background: rgb(184,225,252); /* Old browsers */
+	background: -moz-linear-gradient(45deg, rgba(184,225,252,1) 0%, rgba(169,210,243,1) 10%, rgba(144,186,228,1) 25%, rgba(144,188,234,1) 37%, rgba(107,168,229,1) 46%, rgba(144,191,240,1) 48%, rgba(162,218,245,1) 83%, rgba(189,243,253,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(45deg, rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(107,168,229,1) 46%,rgba(144,191,240,1) 48%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(45deg, rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(107,168,229,1) 46%,rgba(144,191,240,1) 48%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.list-holder, .active_contact-holder{
+	float: left;
+}
+.search-holder{
+	width: 60%;
+	margin: 15px auto 0;
+}
+.search-holder input{
+	width: 100%;
+}
+.active-picture-holder{
+	float: left;
+}
+.active-picture-holder img{
+	width: 100%;
+	border-radius: 4px;
+}
+.active-info-holder {
+	float: left;
+	padding-left: 15px;
+}
+.active-info-holder p{
+	margin-top: 0;
+}
+.click-info{
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	.list-holder{
+		width: 100%;
+		height: 50vh;
+	}
+}
