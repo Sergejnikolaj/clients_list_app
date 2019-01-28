@@ -1,4 +1,4 @@
-This is onepageapplication with list of clients and their details.
+This is one page application with list of clients and their details.
 Clients data are loaded dynamicaly via XHR.
 
 This app was built with the [Node], [Create React App], [Redux], [Express].
