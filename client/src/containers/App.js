@@ -8,7 +8,7 @@ import axios from 'axios';
 
 class App extends Component {
 	componentDidMount() {
-		axios.get('http://127.0.0.1:3040').then(response => {
+		axios.get('http://127.0.0.1:3020').then(response => {
 			this.props.dispatch({
 				type: 'USER_LIST_SUCCESS',
 				payload: response.data
