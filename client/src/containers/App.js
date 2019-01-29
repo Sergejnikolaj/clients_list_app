@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Contact from './contact';
+import Search from './search';
 import ActiveContact from '../components/active_contact';
 import '../index.css';
 import { connect } from 'react-redux';
@@ -7,8 +8,7 @@ import axios from 'axios';
 
 class App extends Component {
 	componentDidMount() {
-		axios.get('http://127.0.0.1:3020').then(response => {
-			/*console.log(response.data);*/
+		axios.get('http://127.0.0.1:3040').then(response => {
 			this.props.dispatch({
 				type: 'USER_LIST_SUCCESS',
 				payload: response.data
@@ -18,33 +18,18 @@ class App extends Component {
 			console.log("error is", error);
 		});
 	}
-	handleSearch = (event) => {
-		let searchQuery = event.target.value.toLowerCase();
-		let searchUsers = this.props.users.filter(function(el) {
-			let srchInName = el.general.firstName.toLowerCase();
-			let srchInLastName = el.general.lastName.toLowerCase();
-			return srchInName.indexOf(searchQuery) !== -1 || srchInLastName.indexOf(searchQuery) !== -1
-		});
-						
-		this.props.dispatch({
-			type: 'USER_SEARCH',
-			payload: searchUsers
-		});
-		console.log(event.target.value);
-	}
+	
 	render() {
 		let actUser = this.props.actUser;
 		let srchUsers = this.props.srchUsers;
 		let users = this.props.users;
 		console.log("props/length",this.props.users.length);
 		console.log("length", actUser.length);
-		/*console.log("гsers",this.props.srchUsers);*/
 		return (
 			<div className="">
+				<Search />
 				<div className="list-holder">
-					<div className="search-holder">
-						<input type='text' className="" onChange={this.handleSearch} />
-					</div>
+					
 					<ul className='contacts-list'>
 					 {	srchUsers.length === 0 && users.length === 0 ? 
 						<p>...loading</p> : srchUsers.length === 0 && users.length !== 0 ?
@@ -84,7 +69,6 @@ class App extends Component {
 	}
 }
 function mapStateToProps (store) {
-	/*console.log("store",store);*/
   return {
     users: store.users,
     srchUsers: store.searchUsers,

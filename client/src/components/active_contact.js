@@ -3,7 +3,7 @@ import '../index.css';
 
 const ActiveContact = (props) => {
     return ( 
-		<div className="">
+		<div>
 			<div className="active-picture-holder"><img src={props.image} alt="person_pic_full_size" /></div>
 			<div className='active-info-holder'>
 				<p><b>Name/Lastname: </b>{props.name} / {props.lastName}</p>
