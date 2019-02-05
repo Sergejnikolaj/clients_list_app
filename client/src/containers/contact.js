@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import '../index.css';
 import { connect } from 'react-redux';
+import { actUser } from '../actions/active';
+import {bindActionCreators} from 'redux';
 
 class Contact extends Component {
 	handleClick = () => {
-		this.props.dispatch({
-			type: 'USER_ACTIVE',
-			payload: this.props
-		});
-		console.log("contacts props", this.props);
+		this.props.actUser(this.props);
 	}
 	render() {
 		return (
@@ -24,7 +22,10 @@ class Contact extends Component {
 }
 function mapStateToProps (store) {
   return {
-    actUser: store.activeUser
+    actUser: store.active.activeUser
   }
 }
-export default connect(mapStateToProps)(Contact);
+function matchDispatchToProps(dispatch){
+	return bindActionCreators({actUser: actUser}, dispatch)
+}
+export default connect(mapStateToProps, matchDispatchToProps)(Contact);

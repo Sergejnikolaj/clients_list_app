@@ -5,31 +5,26 @@ import ActiveContact from '../components/active_contact';
 import '../index.css';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { gotData } from '../actions/gotData';
+import {bindActionCreators} from 'redux';
 
 class App extends Component {
 	componentDidMount() {
-		axios.get('http://127.0.0.1:3020').then(response => {
-			this.props.dispatch({
-				type: 'USER_LIST_SUCCESS',
-				payload: response.data
-			});
+		axios.get('http://127.0.0.1:3040').then(response => {
+			this.props.gotData(response.data);
 		})
 		.catch(function (error) {
 			console.log("error is", error);
 		});
 	}
-	
 	render() {
 		let actUser = this.props.actUser;
 		let srchUsers = this.props.srchUsers;
 		let users = this.props.users;
-		console.log("props/length",this.props.users.length);
-		console.log("length", actUser.length);
 		return (
 			<div className="">
 				<Search />
 				<div className="list-holder">
-					
 					<ul className='contacts-list'>
 					 {	srchUsers.length === 0 && users.length === 0 ? 
 						<p>...loading</p> : srchUsers.length === 0 && users.length !== 0 ?
@@ -70,9 +65,12 @@ class App extends Component {
 }
 function mapStateToProps (store) {
   return {
-    users: store.users,
-    srchUsers: store.searchUsers,
-    actUser: store.activeUser
+    users: store.users.users,
+    srchUsers: store.search.searchUsers,
+    actUser: store.active.activeUser
   }
 }
-export default connect(mapStateToProps)(App);
+function matchDispatchToProps(dispatch){
+	return bindActionCreators({gotData: gotData}, dispatch)
+}
+export default connect(mapStateToProps, matchDispatchToProps)(App);

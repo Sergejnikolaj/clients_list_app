@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../index.css';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
+import { search } from '../actions/search';
+import {bindActionCreators} from 'redux';
 
 class Search extends Component {
 	handleSearch = (event) => {
@@ -11,12 +13,7 @@ class Search extends Component {
 			let srchInLastName = el.general.lastName.toLowerCase();
 			return srchInName.indexOf(searchQuery) !== -1 || srchInLastName.indexOf(searchQuery) !== -1
 		});
-						
-		this.props.dispatch({
-			type: 'USER_SEARCH',
-			payload: searchUsers
-		});
-		console.log(event.target.value);
+		this.props.search(searchUsers);
 	}
 	render() {
 		return (
@@ -35,7 +32,10 @@ class Search extends Component {
 }
 function mapStateToProps (store) {
   return {
-    users: store.users
+    users: store.users.users
   }
 }
-export default connect(mapStateToProps)(Search);
+function matchDispatchToProps(dispatch){
+	return bindActionCreators({search: search}, dispatch)
+}
+export default connect(mapStateToProps, matchDispatchToProps)(Search);
