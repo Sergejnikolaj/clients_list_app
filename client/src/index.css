@@ -1,100 +1,189 @@
-@font-face{
-font-family: 'Nobile-Regular';
-src: url('./fonts/Nobile-Regular.ttf') format('truetype');
-font-weight: normal;
-font-style: normal;
+@font-face {
+  font-family: "Nobile-Regular";
+  src: url("./fonts/Nobile-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
-body{
-	margin: 0;
-	font-family: 'Nobile-Regular';
+html {
+  overflow: hidden;
 }
-.list-holder{
-	width: 40%;
-	height: 100vh;
-	overflow: scroll;
-	overflow-x:hidden;
-	background: rgb(230,240,163); /* Old browsers */
-	background: -moz-linear-gradient(-45deg, rgba(230,240,163,1) 0%, rgba(210,230,56,1) 50%, rgba(195,216,37,1) 51%, rgba(219,240,67,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(-45deg, rgba(230,240,163,1) 0%,rgba(210,230,56,1) 50%,rgba(195,216,37,1) 51%,rgba(219,240,67,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(135deg, rgba(230,240,163,1) 0%,rgba(210,230,56,1) 50%,rgba(195,216,37,1) 51%,rgba(219,240,67,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+body {
+  margin: 0;
+  font-family: "Nobile-Regular";
+  overflow: hidden;
+  background: rgb(184, 225, 252);
 }
-.contacts-list{
-	list-style-type: none;
-	margin: 0;
-    padding: 15px;	
+.list-holder {
+  width: 30%;
+  height: 94vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  background: rgb(230, 240, 163);
 }
-.contact{
-	height: 60px;
-	background-color: rgba(255,255,255,0.4);
-    margin-top: 5px;
+.contacts-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 15px;
 }
-.contact:hover{
-	cursor: pointer;
-	background-color: rgba(255,255,255,1);
+.contact {
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-top: 5px;
+  position: relative;
 }
-.contact-image{
-	display: inline-block;
-	height: 100%;
-	float: left;
+.contact:hover {
+  background-color: rgba(255, 255, 255, 1);
 }
-.contact-image img{
-	height: 100%;
+.contact-content {
+  display: inline-block;
+  height: 100%;
 }
-.contact-info{
-	display: inline-block;
-	padding-left: 10px;
-	padding-top: 10px;
-	float: left;
+.contact-content:hover {
+  cursor: pointer;
 }
-.contact-info p{
-	margin: 0;
+.contact-image {
+  display: inline-block;
+  height: 100%;
+  float: left;
 }
-.active-contact-holder{
-    overflow: hidden;
-	padding: 15px 0 0 15px;
-	background: rgb(184,225,252); /* Old browsers */
-	background: -moz-linear-gradient(45deg, rgba(184,225,252,1) 0%, rgba(169,210,243,1) 10%, rgba(144,186,228,1) 25%, rgba(144,188,234,1) 37%, rgba(107,168,229,1) 46%, rgba(144,191,240,1) 48%, rgba(162,218,245,1) 83%, rgba(189,243,253,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(45deg, rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(107,168,229,1) 46%,rgba(144,191,240,1) 48%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(45deg, rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(107,168,229,1) 46%,rgba(144,191,240,1) 48%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+.contact-image img {
+  height: 100%;
 }
-.list-holder, .active_contact-holder{
-	float: left;
+.contact-info {
+  display: inline-block;
+  padding-left: 10px;
+  padding-top: 10px;
+  float: left;
 }
-.search-wrapper{
-	width: 100%;
-	background: rgb(224,243,250); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(224,243,250,1) 0%, rgba(216,240,252,1) 50%, rgba(184,226,246,1) 51%, rgba(182,223,253,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, rgba(224,243,250,1) 0%,rgba(216,240,252,1) 50%,rgba(184,226,246,1) 51%,rgba(182,223,253,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, rgba(224,243,250,1) 0%,rgba(216,240,252,1) 50%,rgba(184,226,246,1) 51%,rgba(182,223,253,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+.contact-info p {
+  margin: 0;
 }
-.search-holder{
-	width: 50%;
-	margin: 0 auto;
-	padding: 5px 0 10px;
+.active-contact-holder {
+  overflow: hidden;
+  padding: 15px 0 0 15px;
 }
-.textfield{
-	width: 100%;
+.list-holder,
+.active_contact-holder {
+  float: left;
 }
-.active-picture-holder{
-	float: left;
+.search-wrapper {
+  width: 100%;
+  height: 6vh;
+  background: rgb(224, 243, 250); /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    rgba(224, 243, 250, 1) 0%,
+    rgba(216, 240, 252, 1) 50%,
+    rgba(184, 226, 246, 1) 51%,
+    rgba(182, 223, 253, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(224, 243, 250, 1) 0%,
+    rgba(216, 240, 252, 1) 50%,
+    rgba(184, 226, 246, 1) 51%,
+    rgba(182, 223, 253, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(224, 243, 250, 1) 0%,
+    rgba(216, 240, 252, 1) 50%,
+    rgba(184, 226, 246, 1) 51%,
+    rgba(182, 223, 253, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
-.active-picture-holder img{
-	width: 100%;
-	border-radius: 4px;
+.search-holder {
+  width: 50%;
+  margin: 0 auto;
+  padding: 5px 0 10px;
+}
+.textfield {
+  width: 100%;
+}
+.active-picture-holder {
+  float: left;
+  min-width: 128px;
+}
+.active-picture-holder img {
+  width: 100%;
+  border-radius: 4px;
 }
 .active-info-holder {
-	float: left;
-	padding-left: 15px;
+  float: left;
+  margin-left: 15px;
 }
-.active-info-holder p{
-	margin-top: 0;
+.active-info-holder p {
+  margin-top: 0;
 }
-.click-info{
-	margin: 0;
+.click-info {
+  margin: 0;
+  padding-top: 15px;
+}
+.slider {
+  position: fixed !important;
+  bottom: 0;
+  right: 0;
+  width: 70% !important;
+}
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list-holder.with-slider {
+  height: 69vh;
+}
+.color-white {
+  color: #fff;
+}
+.add-info {
+  color: yellow;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 1024px) {
+  .active-info-holder {
+    border-bottom: 2px dotted;
+  }
 }
 @media (max-width: 768px) {
-	.list-holder{
-		width: 100%;
-		height: 50vh;
-	}
+  .search-wrapper {
+    height: 9vh;
+  }
+  .list-holder {
+    width: 100%;
+    height: 91vh;
+  }
+
+  .slider {
+    position: fixed !important;
+    bottom: 0;
+    right: 0;
+    width: 100% !important;
+    background: rgb(224, 243, 250);
+  }
+  .active-contact-holder {
+    padding: 0;
+    min-height: 238px;
+  }
+  .active-picture-holder {
+    padding: 15px 0 0 15px;
+    min-width: 143px;
+  }
+  .active-picture-holder img {
+    min-height: 143px;
+  }
+  .active-info-holder {
+    padding-top: 15px;
+  }
+  .search-holder {
+    width: 60%;
+  }
+  .textfield {
+    color: red !important;
+  }
+  .list-holder.with-slider {
+    height: 72vh;
+  }
 }

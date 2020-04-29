@@ -1,31 +1,47 @@
-import React, { Component } from 'react';
-import '../index.css';
-import { connect } from 'react-redux';
-import { actUser } from '../actions/active';
-import {bindActionCreators} from 'redux';
+import React from "react";
+import "../index.css";
+import { actUser } from "../actions/active";
+import { checkPerson } from "../actions/checkPerson";
+import { setModal } from "../actions/modal";
+import { useDispatch } from "react-redux";
+import Checkbox from "@material-ui/core/Checkbox";
 
-class Contact extends Component {
-	handleClick = () => {
-		this.props.actUser(this.props);
-	}
-	render() {
-		return (
-			<li className='contact' onClick={this.handleClick}>
-				<span className="contact-image"><img  src={this.props.image} alt="person_pic_small_size" /></span>
-				<span className='contact-info'>
-					<p><b> {this.props.name} {this.props.lastName}</b></p>
-					<p> {this.props.phoneNumber} </p>
-				</span>
-			</li>
-		);
-	}
+export default function Contact(props) {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(actUser(props.personsData));
+    dispatch(setModal(true));
+  };
+
+  const handleChange = (event) => {
+    dispatch(checkPerson(props.personsData, event.target.checked));
+  };
+
+  return (
+    <li className="contact">
+      <span className="contact-content" onClick={handleClick}>
+        <span className="contact-image">
+          <img
+            src={props.personsData.general.avatar}
+            alt={props.personsData.general.firstName}
+          />
+        </span>
+        <span className="contact-info">
+          <p>
+            <b>
+              {" "}
+              {props.personsData.general.firstName}{" "}
+              {props.personsData.general.lastName}
+            </b>
+          </p>
+          <p> {props.personsData.contact.phone} </p>
+        </span>
+      </span>
+      <Checkbox
+        onChange={handleChange}
+        style={{ position: "absolute", top: "5px", right: "0px" }}
+      />
+    </li>
+  );
 }
-function mapStateToProps (store) {
-  return {
-    actUser: store.active.activeUser
-  }
-}
-function matchDispatchToProps(dispatch){
-	return bindActionCreators({actUser: actUser}, dispatch)
-}
-export default connect(mapStateToProps, matchDispatchToProps)(Contact);

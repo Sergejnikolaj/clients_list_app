@@ -1,6 +1,6 @@
-export const search = (user) => {
-	return{
-		type: 'USER_SEARCH',
-		payload: user
-	};
+export const search = (val) => {
+  return {
+    type: "USER_SEARCH",
+    payload: val,
+  };
 };
