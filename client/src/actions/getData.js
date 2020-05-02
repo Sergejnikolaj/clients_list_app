@@ -4,3 +4,10 @@ export const getData = (data) => {
     payload: data,
   };
 };
+
+export const changeUserIsChecked = (data) => {
+  return {
+    type: "CHANGE_USER_IS_CHECKED",
+    payload: data,
+  };
+};
