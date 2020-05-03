@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { getData } from "../actions/getData";
+import { setSpinner } from "../actions/spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { isMobile } from "react-device-detect";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import _ from "lodash";
 import Contact from "./contact";
-import Search from "./search";
+import Header from "./header";
 import Slider from "./slider";
 import ModalComponent from "./modal";
 import ActiveContact from "../components/active_contact";
@@ -16,6 +18,8 @@ export default function App() {
   const searchVal = useSelector((state) => state.search.searchUsers);
   const users = useSelector((state) => state.users.users);
   const checkedList = useSelector((state) => state.checkedList.checkedList);
+  const showSpinner = useSelector((state) => state.showSpinner);
+  const colorTheme = useSelector((state) => state.colorTheme.lightTheme);
   const dispatch = useDispatch();
 
   const filteredList = users.filter(
@@ -26,11 +30,13 @@ export default function App() {
   const mobSmallScreen = isMobile && window.innerWidth <= 768;
 
   useEffect(() => {
+    const url = "http://127.0.0.1:3040";
     const fetchData = async () => {
       const response = await axios
-        .get("http://127.0.0.1:3040")
+        .get(url)
         .then((response) => {
           dispatch(getData(response.data));
+          dispatch(setSpinner(false));
         })
         .catch(function (error) {
           console.log("error is", error);
@@ -41,15 +47,18 @@ export default function App() {
 
   return (
     <div className="">
-      <Search />
+      <Header />
       <div
-        className={`list-holder ${
+        className={`${!colorTheme ? "list-holder-light" : "list-holder-dark"} ${
           mobSmallScreen && checkedList.length > 0 && "with-slider"
         }`}
       >
         <ul className="contacts-list">
-          {searchVal.length === 0 && users.length === 0 ? (
-            <p>...loading</p>
+          {!showSpinner ? (
+            <div className="spinner-holder">
+              <LinearProgress />
+              <h6>LOADING...</h6>
+            </div>
           ) : searchVal.length > 0 && filteredList.length === 0 ? (
             <p>no person found</p>
           ) : (

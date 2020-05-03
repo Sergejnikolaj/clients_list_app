@@ -11,23 +11,29 @@ body {
   margin: 0;
   font-family: "Nobile-Regular";
   overflow: hidden;
-  background: rgb(184, 225, 252);
+  background: rgb(245, 245, 245);
 }
-.list-holder {
+.list-holder-light,
+.list-holder-dark {
   width: 30%;
   height: 94vh;
   overflow: scroll;
   overflow-x: hidden;
-  background: rgb(230, 240, 163);
+}
+.list-holder-light {
+  background-color: #ccc;
+}
+.list-holder-dark {
+  background-color: #808080;
 }
 .contacts-list {
   list-style-type: none;
   margin: 0;
-  padding: 15px;
+  padding: 5px;
 }
 .contact {
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
   margin-top: 5px;
   position: relative;
 }
@@ -63,40 +69,29 @@ body {
   overflow: hidden;
   padding: 15px 0 0 15px;
 }
-.list-holder,
+.list-holder-light,
+.list-holder-dark,
 .active_contact-holder {
   float: left;
 }
-.search-wrapper {
+.header-light,
+.header-dark {
   width: 100%;
+  display: flex;
   height: 6vh;
-  background: rgb(224, 243, 250); /* Old browsers */
-  background: -moz-linear-gradient(
-    top,
-    rgba(224, 243, 250, 1) 0%,
-    rgba(216, 240, 252, 1) 50%,
-    rgba(184, 226, 246, 1) 51%,
-    rgba(182, 223, 253, 1) 100%
-  ); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    top,
-    rgba(224, 243, 250, 1) 0%,
-    rgba(216, 240, 252, 1) 50%,
-    rgba(184, 226, 246, 1) 51%,
-    rgba(182, 223, 253, 1) 100%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    rgba(224, 243, 250, 1) 0%,
-    rgba(216, 240, 252, 1) 50%,
-    rgba(184, 226, 246, 1) 51%,
-    rgba(182, 223, 253, 1) 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  align-items: center;
+}
+.header-light {
+  background-color: grey;
+}
+.header-dark {
+  background-color: #3f6875;
 }
 .search-holder {
   width: 50%;
   margin: 0 auto;
   padding: 5px 0 10px;
+  position: relative;
 }
 .textfield {
   width: 100%;
@@ -131,7 +126,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-.list-holder.with-slider {
+.list-holder-light.with-slider {
+  height: 69vh;
+}
+.list-holder-dark.with-slider {
   height: 69vh;
 }
 .color-white {
@@ -141,6 +139,37 @@ body {
   color: yellow;
   margin-bottom: 10px;
 }
+.spinner-holder {
+  text-align: center;
+}
+
+.switch-color-theme {
+  max-height: 50px;
+}
+
+.tooltip {
+  position: absolute;
+  border-radius: 4px;
+  top: 5px;
+  right: 60px;
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  display: block;
+}
+
+.tooltip::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: -19px;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent;
+  transform: translateY(-50%);
+  border-left: 9px solid black;
+}
 
 @media (min-width: 1024px) {
   .active-info-holder {
@@ -148,20 +177,28 @@ body {
   }
 }
 @media (max-width: 768px) {
-  .search-wrapper {
+  .header-light,
+  .header-dark {
     height: 9vh;
   }
-  .list-holder {
+  .list-holder-light,
+  .list-holder-dark {
     width: 100%;
     height: 91vh;
   }
 
-  .slider {
+  .slider-light,
+  .slider-dark {
     position: fixed !important;
     bottom: 0;
     right: 0;
     width: 100% !important;
-    background: rgb(224, 243, 250);
+  }
+  .slider-light {
+    background-color: rgba(245, 245, 245, 1);
+  }
+  .slider-dark {
+    background-color: #3f6875;
   }
   .active-contact-holder {
     padding: 0;
@@ -183,7 +220,10 @@ body {
   .textfield {
     color: red !important;
   }
-  .list-holder.with-slider {
+  .list-holder-light.with-slider {
+    height: 72vh;
+  }
+  .list-holder-dark.with-slider {
     height: 72vh;
   }
 }
