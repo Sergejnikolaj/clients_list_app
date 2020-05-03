@@ -18,7 +18,7 @@ export default function App() {
   const searchVal = useSelector((state) => state.search.searchUsers);
   const users = useSelector((state) => state.users.users);
   const checkedList = useSelector((state) => state.checkedList.checkedList);
-  const showSpinner = useSelector((state) => state.showSpinner);
+  const showSpinner = useSelector((state) => state.showSpinner.showSpinner);
   const colorTheme = useSelector((state) => state.colorTheme.lightTheme);
   const dispatch = useDispatch();
 
@@ -44,7 +44,7 @@ export default function App() {
     };
     fetchData();
   }, []);
-
+  
   return (
     <div className="">
       <Header />
@@ -54,7 +54,7 @@ export default function App() {
         }`}
       >
         <ul className="contacts-list">
-          {!showSpinner ? (
+          {showSpinner ? (
             <div className="spinner-holder">
               <LinearProgress />
               <h6>LOADING...</h6>
