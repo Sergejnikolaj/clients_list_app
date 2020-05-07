@@ -10,7 +10,7 @@ import Contact from "./contact";
 import Header from "./header";
 import Slider from "./slider";
 import ModalComponent from "./modal";
-import ActiveContact from "../components/active_contact";
+import TabsComponent from "../components/tabs";
 import "../index.css";
 
 export default function App() {
@@ -69,13 +69,13 @@ export default function App() {
         </ul>
       </div>
       {_.isEmpty(actUser) ? (
-        <p className="click-info">
+        <span className="click-info">
           {!mobSmallScreen && "click on person to get more info"}
-        </p>
+        </span>
       ) : (
         <div className="active-contact-holder">
           {!mobSmallScreen ? (
-            <ActiveContact {...actUser} />
+            <TabsComponent {...actUser} />
           ) : (
             <ModalComponent {...actUser} />
           )}

@@ -29,7 +29,7 @@ body {
 .contacts-list {
   list-style-type: none;
   margin: 0;
-  padding: 5px;
+  padding: 0 5px 5px 5px;
 }
 .contact {
   height: 60px;
@@ -67,7 +67,7 @@ body {
 }
 .active-contact-holder {
   overflow: hidden;
-  padding: 15px 0 0 15px;
+  padding: 0 15px 0 15px;
 }
 .list-holder-light,
 .list-holder-dark,
@@ -112,8 +112,14 @@ body {
   margin-top: 0;
 }
 .click-info {
-  margin: 0;
-  padding-top: 15px;
+  margin: 0 auto;
+  width: 50%;
+  min-height: 50px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px dotted;
 }
 .slider {
   position: fixed !important;
@@ -158,6 +164,13 @@ body {
   display: block;
 }
 
+.app-bar {
+  background-color: transparent !important;
+  color: black !important;
+  box-shadow: none !important;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted;
+}
 .tooltip::after {
   content: " ";
   position: absolute;
@@ -170,7 +183,39 @@ body {
   transform: translateY(-50%);
   border-left: 9px solid black;
 }
-
+.form-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+.form {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: 2px dotted;
+  border-radius: 4px;
+}
+.form label {
+  color: #989898;
+  font-size: 0.8em;
+}
+.form-input > * {
+  color: black !important;
+}
+.form-input > div {
+  margin-bottom: 5px;
+}
+.form-input input {
+  padding: 5px;
+}
+.submit-btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+.submit-btn {
+  max-width: 120px;
+}
 @media (min-width: 1024px) {
   .active-info-holder {
     border-bottom: 2px dotted;
