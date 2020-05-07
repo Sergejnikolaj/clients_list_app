@@ -13,12 +13,8 @@ export default function Slider() {
     dispatch(actUser(person));
     dispatch(setModal(true));
   };
-  const minHeight =
-    window.innerWidth === 768
-      ? "190px"
-      : window.innerWidth < 768
-      ? "135px"
-      : "225px";
+  const slidesToShow =
+    window.innerWidth < 768 ? 2 : window.innerWidth === 768 ? 3 : 5;
   const mobSliderTheme =
     window.innerWidth <= 768 && colorTheme
       ? "slider-light"
@@ -29,7 +25,7 @@ export default function Slider() {
   return (
     <Carousel
       framePadding="5px 0px"
-      slidesToShow={window.innerWidth < 768 ? 2 : 3}
+      slidesToShow={slidesToShow}
       dragging={true}
       cellSpacing={3}
       slideWidth={0.75}
@@ -42,7 +38,7 @@ export default function Slider() {
           alt={person.general.firstName}
           key={person.contact.phone}
           onClick={() => handleClick(person)}
-          style={{ minHeight: `${minHeight}` }}
+          style={{ minHeight: "100%" }}
         />
       ))}
     </Carousel>
