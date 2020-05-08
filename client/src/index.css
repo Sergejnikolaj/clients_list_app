@@ -80,6 +80,7 @@ body {
   display: flex;
   height: 6vh;
   align-items: center;
+  justify-content: space-between;
 }
 .header-light {
   background-color: grey;
@@ -88,13 +89,24 @@ body {
   background-color: #3f6875;
 }
 .search-holder {
-  width: 50%;
-  margin: 0 auto;
-  padding: 5px 0 10px;
+  width: 30%;
+  padding: 5px 0 10px 10px;
   position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+.search-holder input {
+  width: 90%;
+  width: 100%;
+}
+.search-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 8%;
 }
 .textfield {
-  width: 100%;
+  width: 88%;
+  width: 85%;
 }
 .active-picture-holder {
   float: left;
@@ -111,7 +123,8 @@ body {
 .active-info-holder p {
   margin-top: 0;
 }
-.click-info {
+.click-info,
+.no-found {
   margin: 0 auto;
   width: 50%;
   min-height: 50px;
@@ -148,7 +161,9 @@ body {
 .spinner-holder {
   text-align: center;
 }
-
+.switch-holder {
+  padding-right: 15px;
+}
 .switch-color-theme {
   max-height: 50px;
 }
@@ -157,7 +172,7 @@ body {
   position: absolute;
   border-radius: 4px;
   top: 5px;
-  right: 60px;
+  right: 75px;
   padding: 10px;
   background-color: black;
   color: #fff;
@@ -216,6 +231,11 @@ body {
 .submit-btn {
   max-width: 120px;
 }
+
+.hidden {
+  display: none !important;
+}
+
 @media (min-width: 1024px) {
   .active-info-holder {
     border-bottom: 2px dotted;
@@ -260,7 +280,8 @@ body {
     padding-top: 15px;
   }
   .search-holder {
-    width: 60%;
+    width: 70%;
+    margin: 0 auto;
   }
   .textfield {
     color: red !important;
