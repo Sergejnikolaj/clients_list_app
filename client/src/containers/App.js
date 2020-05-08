@@ -44,7 +44,7 @@ export default function App() {
     };
     fetchData();
   }, []);
-  
+
   return (
     <div className="">
       <Header />
@@ -60,7 +60,7 @@ export default function App() {
               <h6>LOADING...</h6>
             </div>
           ) : searchVal.length > 0 && filteredList.length === 0 ? (
-            <p>no person found</p>
+            <span className="no-found">no person found</span>
           ) : (
             filteredList.map(function (el) {
               return <Contact personsData={el} key={el.contact.phone} />;
