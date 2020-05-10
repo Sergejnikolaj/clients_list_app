@@ -1,18 +1,19 @@
-import React from "react";
+import React, { memo } from "react";
 import Carousel from "nuka-carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { actUser } from "../actions/active";
 import { setModal } from "../actions/modal";
 
-export default function Slider() {
+export const Slider = memo(() => {
   const checkedList = useSelector((state) => state.checkedList.checkedList);
   const colorTheme = useSelector((state) => state.colorTheme.lightTheme);
   const dispatch = useDispatch();
 
   const handleClick = (person) => {
     dispatch(actUser(person));
-    dispatch(setModal(true));
+    window.innerWidth <= 768 && dispatch(setModal(true));
   };
+
   const slidesToShow =
     window.innerWidth < 768 ? 2 : window.innerWidth === 768 ? 3 : 5;
   const mobSliderTheme =
@@ -21,6 +22,7 @@ export default function Slider() {
       : window.innerWidth <= 768 && !colorTheme
       ? "slider-dark"
       : null;
+  const shouldControls = slidesToShow + 2 <= checkedList.length ? false : true;
 
   return (
     <Carousel
@@ -31,6 +33,7 @@ export default function Slider() {
       slideWidth={0.75}
       slideHeight={0.75}
       className={mobSliderTheme}
+      withoutControls={shouldControls}
     >
       {checkedList.map((person) => (
         <img
@@ -38,9 +41,9 @@ export default function Slider() {
           alt={person.general.firstName}
           key={person.contact.phone}
           onClick={() => handleClick(person)}
-          style={{ minHeight: "100%" }}
+          className="slider-img"
         />
       ))}
     </Carousel>
   );
-}
+});

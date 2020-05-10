@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import "../index.css";
 import TextField from "@material-ui/core/TextField";
 import { search } from "../actions/search";
@@ -8,7 +8,7 @@ import { isMobile } from "react-device-detect";
 import Switch from "@material-ui/core/Switch";
 import SearchIcon from "@material-ui/icons/Search";
 
-export default function Header() {
+export const Header = memo(() => {
   const dispatch = useDispatch();
   const colorTheme = useSelector((state) => state.colorTheme.lightTheme);
   const [visible, showTooltip] = useState(false);
@@ -57,4 +57,4 @@ export default function Header() {
       </div>
     </div>
   );
-}
+});

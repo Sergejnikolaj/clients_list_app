@@ -140,6 +140,9 @@ body {
   right: 0;
   width: 70% !important;
 }
+.slider-img {
+  min-height: 100%;
+}
 .modal {
   display: flex;
   align-items: center;
@@ -161,9 +164,6 @@ body {
 .spinner-holder {
   text-align: center;
 }
-.switch-holder {
-  padding-right: 15px;
-}
 .switch-color-theme {
   max-height: 50px;
 }
@@ -171,8 +171,8 @@ body {
 .tooltip {
   position: absolute;
   border-radius: 4px;
-  top: 5px;
-  right: 75px;
+  top: 8px;
+  right: 70px;
   padding: 10px;
   background-color: black;
   color: #fff;

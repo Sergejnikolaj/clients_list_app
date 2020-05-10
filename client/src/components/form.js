@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { useFormik } from "formik";
 import jsPDF from "jspdf";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-export const Form = (props) => {
+export const Form = memo((props) => {
   const {
     general = {},
     general: { firstName = "", lastName = "" },
@@ -38,6 +38,7 @@ export const Form = (props) => {
       doc.save(`${firstName}${lastName}.pdf`);
     },
   });
+
   return (
     <div className="form-wrapper">
       <form className="form" onSubmit={formik.handleSubmit}>
@@ -155,4 +156,5 @@ export const Form = (props) => {
       </form>
     </div>
   );
-};
+});
+

@@ -7,10 +7,10 @@ import { isMobile } from "react-device-detect";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import _ from "lodash";
 import Contact from "./contact";
-import Header from "./header";
-import Slider from "./slider";
-import ModalComponent from "./modal";
-import TabsComponent from "../components/tabs";
+import { Header } from "./header";
+import { Slider } from "./slider";
+import { ModalComponent } from "./modal";
+import { TabsComponent } from "../components/tabs";
 import "../index.css";
 
 export default function App() {
