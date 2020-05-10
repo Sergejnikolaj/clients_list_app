@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import "../index.css";
 
-export default function ActiveContact(props) {
+export const ActiveContact = memo((props) => {
   return (
     <React.Fragment>
       <div className="active-picture-holder">
-        <img src={props.general.avatar} alt={props.general.firstName} />
+        <img src={props.general.avatar} alt="list-ava" />
       </div>
       <div className="active-info-holder">
         <p>
@@ -47,4 +47,4 @@ export default function ActiveContact(props) {
       </div>
     </React.Fragment>
   );
-}
+});

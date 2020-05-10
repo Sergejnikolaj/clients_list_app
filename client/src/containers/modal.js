@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { setModal } from "../actions/modal";
 
-export default function ModalComponent(props) {
+export const ModalComponent = memo((props) => {
   const isOpen = useSelector((state) => state.modal.modal);
   const dispatch = useDispatch();
 
@@ -80,4 +80,4 @@ export default function ModalComponent(props) {
       </Modal>
     </div>
   );
-}
+});

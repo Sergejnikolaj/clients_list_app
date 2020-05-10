@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import ActiveContact from "./active_contact";
+import { ActiveContact } from "./active_contact";
 import { Form } from "./form";
 
 function TabPanel(props) {
@@ -24,7 +24,7 @@ function TabPanel(props) {
   );
 }
 
-export default function TabsComponent(props) {
+export const TabsComponent = memo((props) => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -47,4 +47,4 @@ export default function TabsComponent(props) {
       </TabPanel>
     </div>
   );
-}
+});
