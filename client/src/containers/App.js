@@ -9,8 +9,9 @@ import _ from "lodash";
 import Contact from "./contact";
 import { Header } from "./header";
 import { Slider } from "./slider";
-import { ModalComponent } from "./modal";
+import HOCmodal from "./HOCmodal";
 import { TabsComponent } from "../components/tabs";
+import { ActiveContact } from "../components/active_contact";
 import "../index.css";
 
 export default function App() {
@@ -20,7 +21,9 @@ export default function App() {
   const checkedList = useSelector((state) => state.checkedList.checkedList);
   const showSpinner = useSelector((state) => state.showSpinner.showSpinner);
   const colorTheme = useSelector((state) => state.colorTheme.lightTheme);
+  const showModal = useSelector((state) => state.modal.modal);
   const dispatch = useDispatch();
+  const ModalContact = HOCmodal(ActiveContact);
 
   const filteredList = users.filter(
     (user) =>
@@ -77,7 +80,7 @@ export default function App() {
           {!mobSmallScreen ? (
             <TabsComponent {...actUser} />
           ) : (
-            <ModalComponent {...actUser} />
+            <ModalContact isOpen={showModal} {...actUser} />
           )}
         </div>
       )}
