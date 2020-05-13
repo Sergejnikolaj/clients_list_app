@@ -4,7 +4,6 @@ import search from "./search";
 import active from "./active";
 import checkedList from "./checkPerson";
 import modal from "./modal";
-import showSpinner from "./spinner";
 import colorTheme from "./colorTheme";
 
 const allReducers = combineReducers({
@@ -13,7 +12,6 @@ const allReducers = combineReducers({
   active,
   checkedList,
   modal,
-  showSpinner,
   colorTheme,
 });
 
