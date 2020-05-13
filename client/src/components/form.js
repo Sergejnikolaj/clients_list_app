@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 export const Form = memo((props) => {
   const {
     general = {},
-    general: { firstName = "", lastName = "" },
+    general: { firstName = "", lastName = "", avatar = "" },
     job = {},
     address = {},
     contact = {},
@@ -17,23 +17,28 @@ export const Form = memo((props) => {
 
     onSubmit: () => {
       const doc = new jsPDF();
+      const img = new Image();
+      img.src = avatar;
       const generalKeys = Object.keys(general);
+      generalKeys.pop();
       const jobKeys = Object.keys(job);
       const addressKeys = Object.keys(address);
       const contactKeys = Object.keys(contact);
       const generalVals = Object.values(general);
+      generalVals.pop();
       const jobVals = Object.values(job);
       const addressVals = Object.values(address);
       const contactVals = Object.values(contact);
 
-      doc.text(10, 10, generalKeys);
-      doc.text(10, 40, contactKeys);
-      doc.text(10, 60, jobKeys);
-      doc.text(10, 80, addressKeys);
-      doc.text(40, 10, generalVals);
-      doc.text(40, 40, contactVals);
-      doc.text(40, 60, jobVals);
-      doc.text(40, 80, addressVals);
+      doc.addImage(img, "JPEG", 10, 10, 60, 60);
+      doc.text(80, 15, generalKeys);
+      doc.text(80, 35, contactKeys);
+      doc.text(80, 55, jobKeys);
+      doc.text(80, 75, addressKeys);
+      doc.text(110, 15, generalVals);
+      doc.text(110, 35, contactVals);
+      doc.text(110, 55, jobVals);
+      doc.text(110, 75, addressVals);
 
       doc.save(`${firstName}${lastName}.pdf`);
     },
@@ -157,4 +162,3 @@ export const Form = memo((props) => {
     </div>
   );
 });
-
