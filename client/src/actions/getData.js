@@ -7,7 +7,9 @@ export const getUsers = () => {
     axios
       .get(url)
       .then((res) => {
-        dispatch(getUsersSuccess(res.data));
+        setTimeout(() => {
+          dispatch(getUsersSuccess(res.data));
+        }, 2000);
       })
       .catch((err) => {
         dispatch(getUsersFailure(err.message));
