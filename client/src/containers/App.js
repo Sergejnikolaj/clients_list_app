@@ -15,14 +15,13 @@ import "../index.css";
 export default function App() {
   const actUser = useSelector((state) => state.active.activeUser);
   const searchVal = useSelector((state) => state.search.searchUsers);
-  const users = useSelector((state) => state.users.users);
-  const loading = useSelector((state) => state.users.loading);
+  const usersState = useSelector((state) => state.users);
   const checkedList = useSelector((state) => state.checkedList.checkedList);
   const colorTheme = useSelector((state) => state.colorTheme.lightTheme);
   const showModal = useSelector((state) => state.modal.modal);
   const dispatch = useDispatch();
   const ModalContact = HOCmodal(ActiveContact);
-
+  const {users, loading, error} = usersState;
   const filteredList =
     users &&
     users.filter(
@@ -63,7 +62,11 @@ export default function App() {
       </div>
       {_.isEmpty(actUser) ? (
         <span className="click-info">
-          {!mobSmallScreen && "click on person to get more info"}
+          {error === null && !mobSmallScreen && filteredList.length > 0 ? (
+            "click on person to get more info"
+          ) : error !== null ? (
+            <p>{error}</p>
+          ) : null}
         </span>
       ) : (
         <div className="active-contact-holder">

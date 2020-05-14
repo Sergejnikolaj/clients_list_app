@@ -134,6 +134,9 @@ body {
   align-items: center;
   border-bottom: 2px dotted;
 }
+.click-info p {
+  color: #f50057;
+}
 .slider {
   position: fixed !important;
   bottom: 0;

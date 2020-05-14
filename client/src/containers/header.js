@@ -11,6 +11,7 @@ import SearchIcon from "@material-ui/icons/Search";
 export const Header = memo(() => {
   const dispatch = useDispatch();
   const colorTheme = useSelector((state) => state.colorTheme.lightTheme);
+  const users = useSelector((state) => state.users.users);
   const [visible, showTooltip] = useState(false);
   const [show, showIcon] = useState(true);
 
@@ -34,15 +35,17 @@ export const Header = memo(() => {
   return (
     <div className={`${!colorTheme ? "header-light" : "header-dark"}`}>
       <div className="search-holder">
-        <TextField
-          onChange={handleChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          type="search"
-          label="Name/Lastname"
-          className="textfield"
-        />
-        {show && <SearchIcon className="search-icon" />}
+        {users.length > 0 && (
+          <TextField
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            type="search"
+            label="Name/Lastname"
+            className="textfield"
+          />
+        )}
+        {show && users.length > 0 && <SearchIcon className="search-icon" />}
       </div>
       <div className="switch-holder">
         <Switch
