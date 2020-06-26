@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/clients_list_app_demo/static/css/main.371634cb.chunk.css",
+    "main.js": "/clients_list_app_demo/static/js/main.19883258.chunk.js",
+    "main.js.map": "/clients_list_app_demo/static/js/main.19883258.chunk.js.map",
+    "runtime-main.js": "/clients_list_app_demo/static/js/runtime-main.43b77e73.js",
+    "runtime-main.js.map": "/clients_list_app_demo/static/js/runtime-main.43b77e73.js.map",
+    "static/js/2.d030fb69.chunk.js": "/clients_list_app_demo/static/js/2.d030fb69.chunk.js",
+    "static/js/2.d030fb69.chunk.js.map": "/clients_list_app_demo/static/js/2.d030fb69.chunk.js.map",
+    "index.html": "/clients_list_app_demo/index.html",
+    "precache-manifest.b0e3200af7fab9c37b08f7b95848d2bd.js": "/clients_list_app_demo/precache-manifest.b0e3200af7fab9c37b08f7b95848d2bd.js",
+    "service-worker.js": "/clients_list_app_demo/service-worker.js",
+    "static/css/main.371634cb.chunk.css.map": "/clients_list_app_demo/static/css/main.371634cb.chunk.css.map",
+    "static/js/2.d030fb69.chunk.js.LICENSE.txt": "/clients_list_app_demo/static/js/2.d030fb69.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/clients_list_app_demo/static/media/Nobile-Regular.1ef7c992.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.43b77e73.js",
+    "static/js/2.d030fb69.chunk.js",
+    "static/css/main.371634cb.chunk.css",
+    "static/js/main.19883258.chunk.js"
+  ]
+}
